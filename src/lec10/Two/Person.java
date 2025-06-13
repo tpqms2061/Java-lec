@@ -6,7 +6,7 @@ import lec10.Public;
 public class Person extends Animal{
 
     public Person() {
-        System.out.println(Animal.protectedFiled);
+        System.out.println(Animal.defaultFiled);
     }
 
 }
