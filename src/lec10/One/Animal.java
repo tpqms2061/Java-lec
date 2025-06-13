@@ -1,5 +1,14 @@
 package lec10.One;
 
+import lec10.Public;
+
 public class Animal {
-    public static String publicFiled = "난 퍼블릭";
+    protected static String protectedFiled = "protected";
+
+
+    public Animal() {
+        System.out.println(Animal.protectedFiled);
+        System.out.println(Public.publicFiled);
+
+    }
 }

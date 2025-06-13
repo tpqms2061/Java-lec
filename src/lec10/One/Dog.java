@@ -1,9 +1,9 @@
 package lec10.One;
 
-public class Dog extends Animal {
+public class Dog  {
     public Dog() {
 
-        System.out.println(Animal.PrivateFiled);
+        System.out.println(Animal.protectedFiled);
 
     }
 }
