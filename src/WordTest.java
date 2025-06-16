@@ -72,7 +72,7 @@ public class WordTest {
         // ...
         // "CWNCC" => sb는 첨에 "" 로 이루어져있따가 sb.append를 통해서 하나씩 연결하는거
 
-        String getWordCheckResult() {  //StringBuiler -> 문자열을 효율적으로 연결하려고 //String 을 저장하려는 장소 -> 버퍼
+        String getWordResultCheck() {  //StringBuiler -> 문자열을 효율적으로 연결하려고 //String 을 저장하려는 장소 -> 버퍼
             StringBuilder sb = new StringBuilder();
 
             for (char c : resultSymbols) {
@@ -82,7 +82,25 @@ public class WordTest {
             return sb.toString();
         }
 
-        re
+    }
+
+    private Feedback evaluateGuess(String guess, String answer) {
+        char[] symbols = new char[WORD_LENGTH];
+        int[] count = new int[26];
+
+        //.toCharArray() : 배열을 단어로 변환
+        for (char c : answer.toCharArray()) {
+            count[c - 'A']++; //단어를 아스키 코드로 변환해서  A :65 B:66 에서 A 를 빼
+
+            // [1, 0, ... 2, ..., 0]
+            // "APPLE"
+            // a 1증가
+            // p
+            // A - A = 0
+            // B - A = 1
+            // ...
+            // Z - A = 25
+        }
     }
 
 
