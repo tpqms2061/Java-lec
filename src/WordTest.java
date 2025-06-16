@@ -1,4 +1,5 @@
 import java.util.Locale;
+import java.util.PrimitiveIterator;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -41,6 +42,47 @@ public class WordTest {
     public static String pickRandomWord() {
         Random rand = new Random();
         return WORD_LIST[rand.nextInt(WORD_LIST.length)]; // bound:10 의 뜻은 0~9 까지의 값을 랜덤하게 출력
+    }
+
+    // C- 알파벳 o, 자리 o
+    // W- 알파벳 o, 자리 x
+    // N- 알파벳 x, 자리 x
+    private static class Feedback {
+        private final char[] resultSymbols;
+
+        Feedback(char[] resultSymbols) {
+            this.resultSymbols = resultSymbols;
+        }
+
+        boolean isAllCorrect() {
+            for (char c : resultSymbols) {
+                if (c != 'C') {
+                    return false;
+                }
+            } // 단어 전부가 CCCCC가 아니라면 정답이 아니니까 false
+            return true; // 그외는 CCCCC는 정답이니까 true
+        }
+
+
+
+        // ['C', 'W', 'N', 'C', 'C']
+        // ""
+        // "C"
+        // "CW"
+        // ...
+        // "CWNCC" => sb는 첨에 "" 로 이루어져있따가 sb.append를 통해서 하나씩 연결하는거
+
+        String getWordCheckResult() {  //StringBuiler -> 문자열을 효율적으로 연결하려고 //String 을 저장하려는 장소 -> 버퍼
+            StringBuilder sb = new StringBuilder();
+
+            for (char c : resultSymbols) {
+                sb.append(c);
+            }
+
+            return sb.toString();
+        }
+
+        re
     }
 
 
